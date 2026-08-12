@@ -108,11 +108,12 @@ a {
 
 .hero-tool {
   margin-top: 0.35rem;
-  padding: 1.15rem 1.2rem 1.25rem;
+  width: 100%;
+  max-width: none;
+  padding: 1.25rem 1.35rem 1.35rem;
   border: 1px solid var(--line);
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.62);
-  max-width: 44rem;
   animation: rise 1s ease both;
   animation-delay: 0.08s;
 }
@@ -122,7 +123,22 @@ a {
   color: var(--ink-soft);
   font-size: 0.95rem;
   line-height: 1.45;
-  max-width: 38rem;
+  max-width: none;
+}
+
+.hero-tool .worth-tool,
+.hero-tool .worth-form {
+  width: 100%;
+}
+
+.hero-tool .worth-form-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  width: 100%;
+}
+
+.hero-tool .worth-input {
+  min-width: 0;
+  width: 100%;
 }
 
 .hero-brand {
