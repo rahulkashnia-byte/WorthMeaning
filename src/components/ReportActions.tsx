@@ -3,17 +3,25 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { reportPath } from "@/lib/domain";
+import {
+  REPORT_LOCALE_META,
+  REPORT_LOCALES,
+  type ReportLocale,
+  allReportPaths,
+  reportPath,
+} from "@/lib/domain";
 
 type Props = {
   domain: string;
+  locale?: ReportLocale;
 };
 
-export function ReportActions({ domain }: Props) {
+export function ReportActions({ domain, locale = "en" }: Props) {
   const router = useRouter();
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const path = reportPath(domain);
+  const path = reportPath(domain, locale);
+  const paths = allReportPaths(domain);
 
   async function onUpdate() {
     setPending(true);
@@ -48,7 +56,15 @@ export function ReportActions({ domain }: Props) {
   return (
     <div className="worth-cache-bar" style={{ marginTop: "1.2rem" }}>
       <p>
-        Permanent page for this domain: <Link href={path}>{path}</Link>
+        Permanent pages:{" "}
+        {REPORT_LOCALES.map((loc, i) => (
+          <span key={loc}>
+            {i > 0 ? " · " : null}
+            <Link href={paths[loc]}>
+              {REPORT_LOCALE_META[loc].label}
+            </Link>
+          </span>
+        ))}
         {error ? (
           <>
             <br />
@@ -57,11 +73,7 @@ export function ReportActions({ domain }: Props) {
         ) : null}
       </p>
       <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
-        <button
-          type="button"
-          className="worth-update"
-          onClick={onCopy}
-        >
+        <button type="button" className="worth-update" onClick={onCopy}>
           Copy link
         </button>
         <button

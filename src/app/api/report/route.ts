@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { normalizeRootDomain, reportPath } from "@/lib/domain";
+import { allReportPaths, normalizeRootDomain, reportPath } from "@/lib/domain";
 import {
   readCachedReport,
   writeCachedReport,
@@ -22,6 +22,7 @@ export async function POST(request: Request) {
     const rootDomain = normalizeRootDomain(url);
     const normalized = normalizeUrl(rootDomain);
     const refresh = Boolean(body.refresh);
+    const paths = allReportPaths(rootDomain);
 
     if (!refresh) {
       const cached = await readCachedReport(rootDomain);
@@ -29,6 +30,7 @@ export async function POST(request: Request) {
         return NextResponse.json({
           ...cached,
           reportPath: reportPath(rootDomain),
+          reportPaths: paths,
         });
       }
     }
@@ -38,6 +40,7 @@ export async function POST(request: Request) {
     return NextResponse.json({
       ...saved,
       reportPath: reportPath(rootDomain),
+      reportPaths: paths,
     });
   } catch (error) {
     const message =

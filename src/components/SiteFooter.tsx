@@ -2,6 +2,9 @@ import Link from "next/link";
 
 const LINKS = [
   { href: "/tools", label: "Tools" },
+  { href: "/hi/website-ki-kimat", label: "हिन्दी" },
+  { href: "/te/website-viluva", label: "తెలుగు" },
+  { href: "/ta/website-vilai", label: "தமிழ்" },
   { href: "/worth-meaning", label: "Worth meaning" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

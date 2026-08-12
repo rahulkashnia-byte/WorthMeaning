@@ -14,7 +14,7 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="hero">
+        <section className="hero hero-with-tool" id="report">
           <h1 className="hero-brand">
             Worth<em>Meaning</em>
           </h1>
@@ -23,30 +23,28 @@ export default function Home() {
             know what a site might be worth and why.
           </p>
           <div className="hero-actions">
-            <a className="btn-primary" href="#report">
-              Get Worth Report
-            </a>
             <a className="btn-ghost" href="/tools">
               Free tools
             </a>
-            <a className="btn-ghost" href="/worth-meaning">
-              Worth meaning
+            <a className="btn-ghost" href="/hi/website-ki-kimat">
+              हिन्दी
+            </a>
+            <a className="btn-ghost" href="/te/website-viluva">
+              తెలుగు
+            </a>
+            <a className="btn-ghost" href="/ta/website-vilai">
+              தமிழ்
             </a>
           </div>
-        </section>
 
-        <section className="panel" id="report">
-          <div className="panel-intro">
-            <p className="worth-kicker">Tool</p>
-            <h2>Worth Report</h2>
-            <p>
-              Paste any domain. We normalize to the root domain only (no www,
-              no path) and save one SEO page per site — e.g.{" "}
-              <code>/report/example.com</code>. Searching again shows saved
-              stats until you press Update.
+          <div className="hero-tool">
+            <p className="worth-kicker">Worth Report</p>
+            <p className="hero-tool-blurb">
+              Paste any domain — we save English + हिन्दी + తెలుగు + தமிழ் SEO
+              pages (USD and ₹ Lakh/Crore).
             </p>
+            <WorthReportTool autofocus />
           </div>
-          <WorthReportTool autofocus />
         </section>
 
         <BuyerQuestionsSection />

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { reportPath } from "@/lib/domain";
+import { REPORT_LOCALES, reportPath } from "@/lib/domain";
 import { listCachedDomains, readCachedReport } from "@/lib/report-cache";
 import { TOOLS } from "@/lib/tools-catalog";
 
@@ -62,6 +62,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.3,
     },
+    {
+      url: "https://worthmeaning.com/hi/website-ki-kimat",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: "https://worthmeaning.com/te/website-viluva",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
+    {
+      url: "https://worthmeaning.com/ta/website-vilai",
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.85,
+    },
   ];
 
   for (const tool of TOOLS) {
@@ -76,12 +94,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   for (const domain of domains) {
     const report = await readCachedReport(domain);
     if (!report?.rankTo?.history?.length) continue;
-    entries.push({
-      url: `https://worthmeaning.com${reportPath(domain)}`,
-      lastModified: new Date(report.analyzedAt),
-      changeFrequency: "weekly",
-      priority: 0.7,
-    });
+    for (const locale of REPORT_LOCALES) {
+      entries.push({
+        url: `https://worthmeaning.com${reportPath(domain, locale)}`,
+        lastModified: new Date(report.analyzedAt),
+        changeFrequency: "weekly",
+        priority: locale === "en" ? 0.7 : 0.65,
+      });
+    }
   }
 
   return entries;

@@ -2,6 +2,21 @@
  * Canonical root-domain key for reports + SEO pages.
  * google.com/xyz, https://www.google.com, http://Google.com → google.com
  */
+
+export type ReportLocale = "en" | "hi" | "te" | "ta";
+
+export const REPORT_LOCALES: ReportLocale[] = ["en", "hi", "te", "ta"];
+
+export const REPORT_LOCALE_META: Record<
+  ReportLocale,
+  { label: string; prefix: string; htmlLang: string; ogLocale: string }
+> = {
+  en: { label: "English", prefix: "", htmlLang: "en", ogLocale: "en_US" },
+  hi: { label: "हिन्दी", prefix: "/hi", htmlLang: "hi", ogLocale: "hi_IN" },
+  te: { label: "తెలుగు", prefix: "/te", htmlLang: "te", ogLocale: "te_IN" },
+  ta: { label: "தமிழ்", prefix: "/ta", htmlLang: "ta", ogLocale: "ta_IN" },
+};
+
 export function normalizeRootDomain(input: string): string {
   const trimmed = input.trim().toLowerCase();
   if (!trimmed) {
@@ -47,8 +62,23 @@ export function normalizeRootDomain(input: string): string {
   return candidate;
 }
 
-export function reportPath(domain: string): string {
-  return `/report/${normalizeRootDomain(domain)}`;
+export function reportPath(
+  domain: string,
+  locale: ReportLocale = "en",
+): string {
+  const root = normalizeRootDomain(domain);
+  const prefix = REPORT_LOCALE_META[locale].prefix;
+  return `${prefix}/report/${root}`;
+}
+
+export function allReportPaths(domain: string): Record<ReportLocale, string> {
+  const root = normalizeRootDomain(domain);
+  return {
+    en: reportPath(root, "en"),
+    hi: reportPath(root, "hi"),
+    te: reportPath(root, "te"),
+    ta: reportPath(root, "ta"),
+  };
 }
 
 export function isValidRootDomain(input: string): boolean {

@@ -1,5 +1,7 @@
 import { formatUsd } from "@/lib/format";
 import { getUsdInrRate } from "@/lib/fx";
+import type { ReportLocale } from "@/lib/domain";
+import { REPORT_UI } from "@/lib/report-i18n";
 import type { CachedWorthReport } from "@/lib/report-cache";
 import { InrWorthStatic } from "@/components/InrWorthStatic";
 import { ReportActions } from "@/components/ReportActions";
@@ -7,10 +9,12 @@ import { ReportFaqSection } from "@/components/ReportFaqSection";
 
 type Props = {
   report: CachedWorthReport;
+  locale?: ReportLocale;
 };
 
-export async function DomainReportView({ report }: Props) {
+export async function DomainReportView({ report, locale = "en" }: Props) {
   const fx = await getUsdInrRate();
+  const ui = REPORT_UI[locale];
   const insights = report.rankTo?.insights;
   const trend =
     report.rankDelta7d == null
@@ -22,14 +26,13 @@ export async function DomainReportView({ report }: Props) {
           : "Flat (7d)";
 
   return (
-    <article className="panel report-page">
+    <article className="panel report-page" lang={locale === "en" ? "en" : locale}>
       <div className="worth-results-head">
         <div>
-          <p className="worth-kicker">Website worth report</p>
+          <p className="worth-kicker">{ui.kicker}</p>
           <h1 className="worth-host">{report.hostname}</h1>
           <p className="worth-range" style={{ marginTop: "0.35rem" }}>
-            How much is {report.hostname} worth? Estimated midpoint and what
-            that number means — in USD and Indian Rupees (Lakh / Crore).
+            {ui.heroBlurb(report.hostname)}
           </p>
         </div>
         <div className="worth-badges">
@@ -44,10 +47,10 @@ export async function DomainReportView({ report }: Props) {
       </div>
 
       <div className="worth-hero-number">
-        <p className="worth-kicker">Estimated midpoint worth</p>
+        <p className="worth-kicker">{ui.midpointLabel}</p>
         <p className="worth-money">{formatUsd(report.estimatedWorth.mid)}</p>
         <p className="worth-range">
-          Range {formatUsd(report.estimatedWorth.low)} –{" "}
+          {ui.rangeLabel} {formatUsd(report.estimatedWorth.low)} –{" "}
           {formatUsd(report.estimatedWorth.high)}
         </p>
         <InrWorthStatic
@@ -64,7 +67,7 @@ export async function DomainReportView({ report }: Props) {
 
       <div className="worth-pipeline">
         <div className="worth-metric">
-          <p className="worth-kicker">Global rank</p>
+          <p className="worth-kicker">{ui.globalRank}</p>
           <p className="worth-metric-value">
             #{report.globalRank.toLocaleString()}
           </p>
@@ -74,25 +77,25 @@ export async function DomainReportView({ report }: Props) {
           </p>
         </div>
         <div className="worth-metric">
-          <p className="worth-kicker">Monthly visits</p>
+          <p className="worth-kicker">{ui.monthlyVisits}</p>
           <p className="worth-metric-value">
             {report.estimatedMonthlyVisits.mid.toLocaleString()}
           </p>
-          <p className="worth-metric-sub">Rank.to traffic model</p>
+          <p className="worth-metric-sub">{ui.trafficModel}</p>
         </div>
         <div className="worth-metric">
-          <p className="worth-kicker">Est. monthly revenue</p>
+          <p className="worth-kicker">{ui.monthlyRevenue}</p>
           <p className="worth-metric-value">
             {formatUsd(report.monthlyRevenue)}
           </p>
           <p className="worth-metric-sub">
-            ${report.assumedRpm} RPM ads/affiliate assumption
+            {ui.rpmSub(report.assumedRpm)}
           </p>
         </div>
         <div className="worth-metric">
-          <p className="worth-kicker">Exit readiness</p>
+          <p className="worth-kicker">{ui.exitReadiness}</p>
           <p className="worth-metric-value">{report.readinessScore}/100</p>
-          <p className="worth-metric-sub">Public-page transfer signals</p>
+          <p className="worth-metric-sub">{ui.transferSignals}</p>
         </div>
       </div>
 
@@ -177,9 +180,9 @@ export async function DomainReportView({ report }: Props) {
         </section>
       </div>
 
-      <ReportFaqSection report={report} />
+      <ReportFaqSection report={report} locale={locale} />
 
-      <ReportActions domain={report.hostname} />
+      <ReportActions domain={report.hostname} locale={locale} />
 
       <p className="worth-footnote">
         {report.methodology} Last fetched{" "}

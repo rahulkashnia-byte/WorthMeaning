@@ -15,7 +15,7 @@ const HOME_FAQS = [
   },
   {
     q: "Do you create a page for every search?",
-    a: "Yes — one SEO page per root domain (for example /report/google.com). Paths, www, and http/https all collapse to the same domain so there are no duplicates.",
+    a: "Yes — one English page plus हिन्दी, తెలుగు, and தமிழ் SEO pages per root domain (for example /report/google.com and /hi/report/google.com). Paths, www, and http/https all collapse to the same domain.",
   },
   {
     q: "Are the traffic numbers exact?",

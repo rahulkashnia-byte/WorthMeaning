@@ -3,7 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { formatUsd } from "@/lib/format";
-import { reportPath } from "@/lib/domain";
+import {
+  REPORT_LOCALE_META,
+  REPORT_LOCALES,
+  type ReportLocale,
+  reportPath,
+} from "@/lib/domain";
 import type { WorthReport } from "@/lib/worth-report";
 import { InrWorthBlock } from "@/components/InrWorthBlock";
 
@@ -12,6 +17,7 @@ type CachedReport = WorthReport & {
   cachedAt: string;
   dataAgeLabel: string;
   reportPath?: string;
+  reportPaths?: Record<ReportLocale, string>;
 };
 
 type Props = {
@@ -192,20 +198,25 @@ export function WorthReportTool({
                 <>
                   Showing saved stats from{" "}
                   <strong>{new Date(report.cachedAt).toLocaleString()}</strong> (
-                  {ageLabel || report.dataAgeLabel}). Permanent page:{" "}
-                  <Link href={report.reportPath || reportPath(report.hostname)}>
-                    {report.reportPath || reportPath(report.hostname)}
-                  </Link>
+                  {ageLabel || report.dataAgeLabel}). SEO pages ready in all
+                  languages:
                 </>
               ) : (
                 <>
-                  Fresh pull saved. SEO page created at{" "}
-                  <Link href={report.reportPath || reportPath(report.hostname)}>
-                    {report.reportPath || reportPath(report.hostname)}
-                  </Link>
-                  . Searching again reuses these numbers until you update.
+                  Fresh pull saved. SEO pages created in English + हिन्दी +
+                  తెలుగు + தமிழ்:
                 </>
-              )}
+              )}{" "}
+              {REPORT_LOCALES.map((loc, i) => {
+                const href =
+                  report.reportPaths?.[loc] || reportPath(report.hostname, loc);
+                return (
+                  <span key={loc}>
+                    {i > 0 ? " · " : null}
+                    <Link href={href}>{REPORT_LOCALE_META[loc].label}</Link>
+                  </span>
+                );
+              })}
             </p>
             <button
               type="button"

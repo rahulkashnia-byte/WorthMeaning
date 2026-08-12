@@ -11,9 +11,9 @@ type Props = {
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  return generateReportMetadata("en", params);
+  return generateReportMetadata("ta", params);
 }
 
-export default async function DomainReportPage({ params }: Props) {
-  return <DomainReportPageBody locale="en" params={params} />;
+export default async function TamilDomainReportPage({ params }: Props) {
+  return <DomainReportPageBody locale="ta" params={params} />;
 }
