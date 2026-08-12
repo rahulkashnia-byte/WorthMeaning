@@ -1,5 +1,7 @@
 import { formatUsd } from "@/lib/format";
+import { getUsdInrRate } from "@/lib/fx";
 import type { CachedWorthReport } from "@/lib/report-cache";
+import { InrWorthStatic } from "@/components/InrWorthStatic";
 import { ReportActions } from "@/components/ReportActions";
 import { ReportFaqSection } from "@/components/ReportFaqSection";
 
@@ -7,7 +9,8 @@ type Props = {
   report: CachedWorthReport;
 };
 
-export function DomainReportView({ report }: Props) {
+export async function DomainReportView({ report }: Props) {
+  const fx = await getUsdInrRate();
   const insights = report.rankTo?.insights;
   const trend =
     report.rankDelta7d == null
@@ -26,7 +29,7 @@ export function DomainReportView({ report }: Props) {
           <h1 className="worth-host">{report.hostname}</h1>
           <p className="worth-range" style={{ marginTop: "0.35rem" }}>
             How much is {report.hostname} worth? Estimated midpoint and what
-            that number means.
+            that number means — in USD and Indian Rupees (Lakh / Crore).
           </p>
         </div>
         <div className="worth-badges">
@@ -47,6 +50,14 @@ export function DomainReportView({ report }: Props) {
           Range {formatUsd(report.estimatedWorth.low)} –{" "}
           {formatUsd(report.estimatedWorth.high)}
         </p>
+        <InrWorthStatic
+          low={report.estimatedWorth.low}
+          mid={report.estimatedWorth.mid}
+          high={report.estimatedWorth.high}
+          monthlyRevenueUsd={report.monthlyRevenue}
+          rate={fx.rate}
+          asOf={fx.asOf}
+        />
       </div>
 
       <p className="worth-meaning">{report.meaning}</p>

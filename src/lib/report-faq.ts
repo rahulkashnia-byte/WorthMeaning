@@ -1,4 +1,5 @@
-import { formatUsd } from "@/lib/format";
+import { formatInrIndian, formatUsd, usdToInr } from "@/lib/format";
+import { getUsdInrRate } from "@/lib/fx";
 import type { WorthReport } from "@/lib/worth-report";
 
 export type FaqItem = {
@@ -6,19 +7,28 @@ export type FaqItem = {
   answer: string;
 };
 
-export function buildReportFaqs(report: WorthReport): FaqItem[] {
+export async function buildReportFaqs(report: WorthReport): Promise<FaqItem[]> {
+  const fx = await getUsdInrRate();
   const d = report.hostname;
   const mid = formatUsd(report.estimatedWorth.mid);
   const low = formatUsd(report.estimatedWorth.low);
   const high = formatUsd(report.estimatedWorth.high);
+  const midInr = formatInrIndian(usdToInr(report.estimatedWorth.mid, fx.rate));
+  const lowInr = formatInrIndian(usdToInr(report.estimatedWorth.low, fx.rate));
+  const highInr = formatInrIndian(usdToInr(report.estimatedWorth.high, fx.rate));
   const visits = report.estimatedMonthlyVisits.mid.toLocaleString();
   const revenue = formatUsd(report.monthlyRevenue);
+  const revenueInr = formatInrIndian(usdToInr(report.monthlyRevenue, fx.rate));
   const insights = report.rankTo?.insights;
 
-  const faqs: FaqItem[] = [
+  return [
     {
       question: `How much is ${d} worth?`,
-      answer: `WorthMeaning estimates ${d} at about ${mid} (range ${low}–${high}). This uses Rank.to traffic rank, an ads/affiliate revenue assumption, and a ~${report.revenueYearsMultiple}× annual revenue multiple. It is a directional estimate, not a formal appraisal or sale price.`,
+      answer: `WorthMeaning estimates ${d} at about ${mid} / ${midInr} (range ${low}–${high}, or ${lowInr}–${highInr}). This uses Rank.to traffic rank, an ads/affiliate revenue assumption, and a ~${report.revenueYearsMultiple}× annual revenue multiple. INR uses a live USD→INR rate (≈ ₹${fx.rate.toFixed(2)}). It is a directional estimate, not a formal appraisal or sale price.`,
+    },
+    {
+      question: `How much is ${d} worth in Indian Rupees?`,
+      answer: `At ≈ ₹${fx.rate.toFixed(2)} per USD, the midpoint is about ${midInr} (range ${lowInr}–${highInr}). Values ≥ ₹1 Lakh are shown in Lakh; ≥ ₹1 Crore in Crore.`,
     },
     {
       question: `How much traffic does ${d} get?`,
@@ -26,7 +36,7 @@ export function buildReportFaqs(report: WorthReport): FaqItem[] {
     },
     {
       question: `How much money can ${d} make?`,
-      answer: `Assuming an ads/affiliate model at $${report.assumedRpm} RPM, WorthMeaning estimates about ${revenue}/month in potential revenue (~${formatUsd(report.annualRevenue)}/year). Real earnings depend on niche, monetization, and geography.`,
+      answer: `Assuming an ads/affiliate model at $${report.assumedRpm} RPM, WorthMeaning estimates about ${revenue}/month (${revenueInr}) in potential revenue (~${formatUsd(report.annualRevenue)}/year). Real earnings depend on niche, monetization, and geography.`,
     },
     {
       question: `What does the ${d} worth number mean?`,
@@ -51,8 +61,6 @@ export function buildReportFaqs(report: WorthReport): FaqItem[] {
       answer: `This WorthMeaning report was last fetched on ${new Date(report.analyzedAt).toLocaleString()}. Searching the same domain again shows saved stats until someone presses Update for a fresh Rank.to pull.`,
     },
   ];
-
-  return faqs;
 }
 
 export function faqJsonLd(faqs: FaqItem[]) {

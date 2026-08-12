@@ -2,6 +2,7 @@
 
 import { formatUsd } from "@/lib/format";
 import type { LiveDomainSnapshot } from "@/lib/tools-live-types";
+import { InrWorthBlock } from "@/components/InrWorthBlock";
 
 export function Field({
   label,
@@ -72,6 +73,12 @@ export function SnapshotCard({ snap }: { snap: LiveDomainSnapshot }) {
                 : `${snap.insights.monthlyVisitsDeltaPct}%`,
           },
         ]}
+      />
+      <InrWorthBlock
+        low={snap.economics.worth.low}
+        mid={snap.economics.worth.mid}
+        high={snap.economics.worth.high}
+        monthlyRevenueUsd={snap.economics.monthlyRevenue}
       />
     </div>
   );

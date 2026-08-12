@@ -5,6 +5,7 @@ import Link from "next/link";
 import { formatUsd } from "@/lib/format";
 import { reportPath } from "@/lib/domain";
 import type { WorthReport } from "@/lib/worth-report";
+import { InrWorthBlock } from "@/components/InrWorthBlock";
 
 type CachedReport = WorthReport & {
   cached: boolean;
@@ -225,6 +226,12 @@ export function WorthReportTool({
               Range {formatUsd(report.estimatedWorth.low)} –{" "}
               {formatUsd(report.estimatedWorth.high)}
             </p>
+            <InrWorthBlock
+              low={report.estimatedWorth.low}
+              mid={report.estimatedWorth.mid}
+              high={report.estimatedWorth.high}
+              monthlyRevenueUsd={report.monthlyRevenue}
+            />
           </div>
 
           <p className="worth-meaning">{report.meaning}</p>

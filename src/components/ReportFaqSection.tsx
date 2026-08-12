@@ -5,8 +5,8 @@ type Props = {
   report: WorthReport;
 };
 
-export function ReportFaqSection({ report }: Props) {
-  const faqs = buildReportFaqs(report);
+export async function ReportFaqSection({ report }: Props) {
+  const faqs = await buildReportFaqs(report);
   const jsonLd = faqJsonLd(faqs);
 
   return (
@@ -15,8 +15,8 @@ export function ReportFaqSection({ report }: Props) {
         <p className="worth-kicker">Questions people ask</p>
         <h2>About {report.hostname}</h2>
         <p>
-          Straight answers from this report — worth, traffic, revenue, trend, and
-          whether buying makes sense.
+          Straight answers from this report — worth in USD and ₹ (Lakh/Crore),
+          traffic, revenue, trend, and whether buying makes sense.
         </p>
       </div>
 
