@@ -2,6 +2,7 @@ import { BuyerQuestionsSection } from "@/components/BuyerQuestionsSection";
 import { HomeFaqSection } from "@/components/HomeFaqSection";
 import { SiteFooter } from "@/components/SiteFooter";
 import { WorthReportTool } from "@/components/WorthReportTool";
+import { SEED_REPORT_DOMAINS } from "@/lib/seed-domains";
 
 export default function Home() {
   return (
@@ -44,6 +45,24 @@ export default function Home() {
               pages (USD and ₹ Lakh/Crore).
             </p>
             <WorthReportTool autofocus />
+          </div>
+        </section>
+
+        <section className="panel" id="examples">
+          <div className="panel-intro">
+            <p className="worth-kicker">Examples</p>
+            <h2>Popular site worth reports</h2>
+            <p>
+              Open a saved Worth Report — or paste your own domain above for a
+              fresh Rank.to estimate.
+            </p>
+            <ul className="example-domain-list">
+              {SEED_REPORT_DOMAINS.map((domain) => (
+                <li key={domain}>
+                  <a href={`/report/${domain}`}>{domain}</a>
+                </li>
+              ))}
+            </ul>
           </div>
         </section>
 

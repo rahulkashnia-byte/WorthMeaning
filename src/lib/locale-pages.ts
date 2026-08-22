@@ -31,21 +31,23 @@ export const LOCALE_PAGES: LocalePageConfig[] = [
     htmlLang: "hi",
     localeLabel: "हिन्दी",
     title:
-      "किसी भी वेबसाइट की कीमत चेक करें — Website Worth Calculator | WorthMeaning",
+      "वेबसाइट की कीमत चेक करें — Site Worth & Earning Checker | WorthMeaning",
     description:
-      "किसी भी वेबसाइट की कीमत (किमत) ऑनलाइन चेक करें। Live Rank.to ट्रैफ़िक से USD और ₹ लाख/करोड़ में अनुमान — मुफ़्त Website Worth Calculator।",
+      "किसी भी वेबसाइट की कीमत और कमाई ऑनलाइन चेक करें। Site worth / website earning checker — Live Rank.to से USD और ₹ लाख/करोड़ अनुमान। मुफ़्त।",
     keywords: [
       "किसी भी वेबसाइट की कीमत",
       "वेबसाइट की कीमत चेक करें",
       "website ki kimat",
+      "site worth",
+      "website earning checker",
+      "website revenue checker",
       "website worth calculator hindi",
-      "वेबसाइट वैल्यू",
       "डोमेन की कीमत",
     ],
     kicker: "हिन्दी · मुफ़्त टूल",
     h1: "किसी भी वेबसाइट की कीमत चेक करें",
     lede:
-      "डोमेन डालें और देखें — अनुमानित कीमत डॉलर में और भारतीय रुपये में (लाख / करोड़)। Live Rank.to रैंक से ट्रैफ़िक मॉडल, रेवेन्यू अनुमान और साफ़ मतलब।",
+      "डोमेन डालें — site worth, अनुमानित ट्रैफ़िक वैल्यू और कमाई देखें (USD + ₹ लाख/करोड़)। Live Rank.to रैंक → विज़िट → रेवेन्यू → कीमत।",
     toolHeading: "अभी कीमत चेक करें",
     toolBlurb:
       "example.com जैसा कोई भी डोमेन पेस्ट करें। रिजल्ट में USD + ₹ (Lakh/Crore) दोनों दिखेंगे।",
@@ -94,13 +96,15 @@ export const LOCALE_PAGES: LocalePageConfig[] = [
     htmlLang: "te",
     localeLabel: "తెలుగు",
     title:
-      "ఏదైనా వెబ్‌సైట్ విలువ చెక్ చేయండి — Website Worth Calculator | WorthMeaning",
+      "వెబ్‌సైట్ విలువ చెక్ — Site Worth & Earning Checker | WorthMeaning",
     description:
-      "ఏ వెబ్‌సైట్ అయినా విలువ (వెల) ఆన్‌లైన్‌లో చెక్ చేయండి. Live Rank.to ట్రాఫిక్‌తో USD మరియు ₹ లక్ష/కోటి అంచనా — ఉచిత Website Worth Calculator.",
+      "ఏ వెబ్‌సైట్ విలువ/కమాయి అయినా ఆన్‌లైన్ చెక్ చేయండి. Site worth + website earning checker — Live Rank.toతో USD మరియు ₹ లక్ష/కోటి. ఉచితం.",
     keywords: [
       "వెబ్‌సైట్ విలువ",
       "website viluva",
       "వెబ్‌సైట్ వెల",
+      "site worth",
+      "website earning checker",
       "website worth calculator telugu",
       "డొమైన్ విలువ",
       "website value telugu",
@@ -108,7 +112,7 @@ export const LOCALE_PAGES: LocalePageConfig[] = [
     kicker: "తెలుగు · ఉచిత టూల్",
     h1: "ఏదైనా వెబ్‌సైట్ విలువ చెక్ చేయండి",
     lede:
-      "డొమైన్ పెట్టండి — అంచనా విలువ డాలర్లలో మరియు భారతీయ రూపాయల్లో (లక్ష / కోటి) చూడండి. Live Rank.to ర్యాంక్, ట్రాఫిక్ మోడల్, రెవెన్యూ అంచనా మరియు స్పష్టమైన అర్థం.",
+      "డొమైన్ పెట్టండి — site worth, ట్రాఫిక్ వాల్యూ, కమాయి అంచనా (USD + ₹ లక్ష/కోటి). Live Rank.to ర్యాంక్ → విజిట్లు → రెవెన్యూ → విలువ.",
     toolHeading: "ఇప్పుడే విలువ చెక్ చేయండి",
     toolBlurb:
       "ఏదైనా డొమైన్ పేస్ట్ చేయండి. రిజల్ట్‌లో USD + ₹ (Lakh/Crore) కనిపిస్తాయి.",
@@ -157,13 +161,15 @@ export const LOCALE_PAGES: LocalePageConfig[] = [
     htmlLang: "ta",
     localeLabel: "தமிழ்",
     title:
-      "எந்த இணையதளத்தின் மதிப்பையும் பாருங்கள் — Website Worth Calculator | WorthMeaning",
+      "இணையதள மதிப்பு பாருங்கள் — Site Worth & Earning Checker | WorthMeaning",
     description:
-      "எந்த இணையதளத்தின் விலை/மதிப்பையும் ஆன்லைனில் பாருங்கள். Live Rank.to டிராஃபிக் மூலம் USD மற்றும் ₹ லட்சம்/கோடி மதிப்பீடு — இலவச Website Worth Calculator.",
+      "எந்த இணையதள மதிப்பு/வருவாயையும் ஆன்லைனில் பாருங்கள். Site worth + website earning checker — Live Rank.to மூலம் USD மற்றும் ₹ லட்சம்/கோடி. இலவசம்.",
     keywords: [
       "இணையதள மதிப்பு",
       "website vilai",
       "வெப்சைட் விலை",
+      "site worth",
+      "website earning checker",
       "website worth calculator tamil",
       "டொமைன் மதிப்பு",
       "website value tamil",
@@ -171,7 +177,7 @@ export const LOCALE_PAGES: LocalePageConfig[] = [
     kicker: "தமிழ் · இலவச கருவி",
     h1: "எந்த இணையதளத்தின் மதிப்பையும் பாருங்கள்",
     lede:
-      "டொமைனை உள்ளிடுங்கள் — மதிப்பீடு டாலரிலும் இந்திய ரூபாயிலும் (லட்சம் / கோடி) தெரியும். Live Rank.to ரேங்க், டிராஃபிக் மாடல், வருவாய் மதிப்பீடு மற்றும் தெளிவான அர்த்தம்.",
+      "டொமைனை உள்ளிடுங்கள் — site worth, டிராஃபிக் மதிப்பு, வருவாய் மதிப்பீடு (USD + ₹ லட்சம்/கோடி). Live Rank.to ரேங்க் → வருகை → வருவாய் → மதிப்பு.",
     toolHeading: "இப்போதே மதிப்பைப் பாருங்கள்",
     toolBlurb:
       "எந்த டொமைனையும் ஒட்டவும். முடிவில் USD + ₹ (Lakh/Crore) தெரியும்.",

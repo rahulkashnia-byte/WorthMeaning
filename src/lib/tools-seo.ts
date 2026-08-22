@@ -40,17 +40,18 @@ function relatedFor(slug: string, category: ToolCategory): string[] {
 export const TOOL_SEO: Record<string, ToolSeo> = {
   "rpm-revenue": {
     slug: "rpm-revenue",
-    seoTitle: "RPM to Revenue Calculator — Free Website Ad Earnings Tool",
+    seoTitle: "Website RPM Calculator — Check Site Revenue from Visits",
     seoDescription:
-      "Free RPM to revenue calculator. Convert monthly visits and RPM into estimated monthly and annual website ad revenue. Instant, no signup.",
+      "Free website revenue calculator: enter visits + RPM to estimate monthly/annual earnings. Also useful as a website earning check before you buy a site.",
     keywords: [
-      "rpm calculator",
-      "rpm to revenue",
+      "website rpm calculator",
       "website revenue calculator",
-      "ad revenue estimator",
+      "website earning check",
+      "site earning check",
+      "rpm to revenue",
     ],
     intro:
-      "Use this free RPM to revenue calculator to estimate how much a website might earn from ads or affiliates. Enter monthly visits and RPM to get monthly, annual, and daily revenue estimates in seconds.",
+      "Use this free website RPM / revenue calculator to estimate how much a site might earn from ads or affiliates. Enter monthly visits and RPM for monthly, annual, and daily revenue — a fast website earning check.",
     howItWorks: [
       "Enter estimated monthly visits for the site.",
       "Enter RPM (revenue per 1,000 pageviews).",
@@ -62,12 +63,12 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
         a: "RPM means revenue per mille — earnings per 1,000 pageviews. It is commonly used for ads and some affiliate models.",
       },
       {
-        q: "Is this the same as AdSense RPM?",
-        a: "It is the same idea. Your real AdSense RPM varies by niche, country, and season; this tool uses the RPM you enter.",
+        q: "Is this a website revenue checker?",
+        a: "Yes for planning: it estimates revenue from the traffic and RPM you enter. For a live domain-based estimate, use Live site worth.",
       },
       {
         q: "Does this use stored website data?",
-        a: "No. Results are calculated instantly from the numbers you type. For live traffic-based worth, use Live site worth.",
+        a: "No. Results are calculated instantly from the numbers you type.",
       },
     ],
     related: relatedFor("rpm-revenue", "valuation"),
@@ -138,17 +139,19 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
   },
   "adsense-earnings": {
     slug: "adsense-earnings",
-    seoTitle: "AdSense Earnings Calculator — Estimate Monthly Ad Income",
+    seoTitle: "Website Earning Checker — AdSense & Site Income Calculator",
     seoDescription:
-      "Free AdSense earnings calculator. Estimate monthly and annual Google AdSense-style income from pageviews and RPM.",
+      "Free website earning checker and AdSense earnings calculator. Estimate monthly website income from pageviews and RPM — no signup.",
     keywords: [
-      "adsense calculator",
+      "website earning checker",
+      "website revenue checker",
+      "check website earning",
+      "website income checker",
       "adsense earnings calculator",
-      "adsense rpm calculator",
-      "how much can i make with adsense",
+      "check website income",
     ],
     intro:
-      "Estimate AdSense-style earnings from monthly pageviews and RPM. Useful for publishers planning niches, traffic goals, or comparing monetization scenarios.",
+      "Check estimated website earnings from monthly pageviews and RPM. Use it as a website revenue checker / earning checker for AdSense-style income planning.",
     howItWorks: [
       "Enter monthly pageviews.",
       "Enter your expected RPM.",
@@ -156,29 +159,36 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     ],
     faqs: [
       {
+        q: "Is this a website earning checker?",
+        a: "Yes — it estimates income from the pageviews and RPM you provide. For a live domain lookup, use Live site worth.",
+      },
+      {
         q: "Can this predict exact AdSense payouts?",
         a: "No. AdSense varies by geography, season, and ad quality. Use this for order-of-magnitude planning.",
       },
       {
         q: "Should I use visits or pageviews?",
-        a: "AdSense is usually based on pageviews (and impressions). If you only know visits, convert using pages per visit first.",
+        a: "AdSense is usually based on pageviews. If you only know visits, convert using pages per visit first.",
       },
     ],
     related: relatedFor("adsense-earnings", "valuation"),
   },
   "live-site-worth": {
     slug: "live-site-worth",
-    seoTitle: "Live Website Worth Calculator — Fresh Rank.to Estimate",
+    seoTitle: "Site Worth Checker — Check Website Worth & Traffic Value",
     seoDescription:
-      "Check website worth with live Rank.to traffic data (not cached). Free live website value estimator with visits, revenue, and mid worth.",
+      "Free site worth checker: paste any domain for a live Rank.to-based website worth, traffic, and revenue estimate in USD and ₹ Lakh/Crore.",
     keywords: [
+      "site worth",
+      "site worth checker",
       "website worth calculator",
       "how much is my website worth",
-      "live website valuation",
+      "traffic value",
       "website value estimator",
+      "check website worth",
     ],
     intro:
-      "Get a live website worth estimate powered by a fresh Rank.to lookup. This tool never reuses WorthMeaning’s saved report cache — every run fetches current ranking data.",
+      "Check any site’s worth with a live Rank.to lookup. Get estimated traffic value, revenue, and midpoint worth — never from stale report cache.",
     howItWorks: [
       "Enter a domain.",
       "We fetch live Rank.to rank and history (cache: no-store).",
@@ -186,16 +196,16 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     ],
     faqs: [
       {
+        q: "What does site worth mean here?",
+        a: "An estimated midpoint value from public rank → visits → revenue → multiple. Directional only — not a guaranteed sale price.",
+      },
+      {
         q: "Is this real-time data?",
         a: "Yes for Rank.to: each request hits their API with no-store caching. Rank snapshots still update on Rank.to’s schedule.",
       },
       {
         q: "Why might a domain fail?",
         a: "New, very small, or unranked domains may have no Rank.to history yet.",
-      },
-      {
-        q: "Is the dollar figure a sale price?",
-        a: "No. It is a directional model estimate. Always verify analytics and profit before buying.",
       },
     ],
     related: relatedFor("live-site-worth", "valuation"),
@@ -392,17 +402,18 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
   },
   "compare-sites": {
     slug: "compare-sites",
-    seoTitle: "Compare Two Websites — Live Worth & Traffic Side by Side",
+    seoTitle: "Compare Websites Statistics — Side-by-Side Worth & Traffic",
     seoDescription:
-      "Compare two domains with live Rank.to data: rank, visits, worth, and trend. Free website comparison tool for buyers.",
+      "Compare websites statistics live: rank, visits, worth, and trend for two domains. Free website comparison tool with fresh Rank.to data.",
     keywords: [
+      "compare websites statistics",
       "compare websites",
       "website worth comparison",
       "compare site traffic",
       "domain comparison tool",
     ],
     intro:
-      "Compare two websites side by side using fresh Rank.to pulls for each domain — rank, estimated visits, revenue, worth, and trend signals.",
+      "Compare two websites side by side using fresh Rank.to pulls — rank, estimated visits, revenue, worth, and trend signals.",
     howItWorks: [
       "Enter site A and site B.",
       "We fetch both live in parallel (never report cache).",
@@ -410,8 +421,12 @@ export const TOOL_SEO: Record<string, ToolSeo> = {
     ],
     faqs: [
       {
+        q: "Can I compare website statistics for any two domains?",
+        a: "Yes, if Rank.to has ranking history for them. Unranked domains will return an error instead of a fake score.",
+      },
+      {
         q: "Can I compare more than two sites?",
-        a: "This tool compares two at a time for clarity. Run it again for additional pairs, or use portfolio-style workflows later.",
+        a: "This tool compares two at a time for clarity. Run it again for additional pairs.",
       },
     ],
     related: relatedFor("compare-sites", "traffic"),

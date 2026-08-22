@@ -163,7 +163,11 @@ export function LocaleWorthPage({ page }: { page: LocalePageConfig }) {
         </section>
 
         <p className="tool-cta-line">
-          <Link href="/tools">Tools</Link>
+          <Link href="/tools/live-site-worth">Site worth checker</Link>
+          {" · "}
+          <Link href="/tools/adsense-earnings">Website earning checker</Link>
+          {" · "}
+          <Link href="/tools">All tools</Link>
           {" · "}
           <Link href="/worth-meaning">Worth meaning</Link>
           {" · "}

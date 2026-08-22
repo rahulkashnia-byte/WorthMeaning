@@ -5,22 +5,24 @@ import { TOOL_CATEGORIES, TOOLS } from "@/lib/tools-catalog";
 import { getToolSeo } from "@/lib/tools-seo";
 
 export const metadata: Metadata = {
-  title: "Free Website Worth Tools — Calculators & Live Rank.to Lookups | WorthMeaning",
+  title:
+    "Site Worth & Website Earning Checker Tools — Free Calculators | WorthMeaning",
   description:
-    "Free website worth tools: live Rank.to calculators, RPM revenue, file size converter, domain age, page weight, offer checks. Fresh data, no signup.",
+    "Free site worth checker, website earning checker, and website revenue calculator — plus live Rank.to tools, domain age, and offer checks. No signup.",
   alternates: { canonical: "/tools" },
   keywords: [
+    "site worth",
+    "site worth checker",
+    "website earning checker",
+    "website revenue checker",
     "website worth calculator",
-    "free website tools",
+    "check website income",
     "rpm calculator",
-    "rank to visits",
-    "domain age checker",
-    "file size converter",
   ],
   openGraph: {
-    title: "Free Website Worth Tools | WorthMeaning",
+    title: "Site Worth & Earning Checker Tools | WorthMeaning",
     description:
-      "Valuation, traffic, domain, and buyer tools powered by live data and instant math.",
+      "Check site worth and website earnings — live Rank.to tools and instant calculators.",
     url: "/tools",
     type: "website",
     siteName: "WorthMeaning",

@@ -16,11 +16,20 @@ const body = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://worthmeaning.com"),
   title: {
-    default: "WorthMeaning — Website Worth Report & Free Tools",
+    default:
+      "WorthMeaning — Site Worth Checker, Website Earning Report & Free Tools",
     template: "%s",
   },
   description:
-    "See what a website might be worth — and what that number actually means. Live Rank.to estimates, free calculators, and clear explanations.",
+    "Check site worth and website earnings with live Rank.to data — clear midpoint, ₹ Lakh/Crore, and free calculators. Know what the number means.",
+  keywords: [
+    "site worth",
+    "website worth",
+    "website earning checker",
+    "website revenue checker",
+    "worth meaning",
+    "website worth calculator",
+  ],
   openGraph: {
     siteName: "WorthMeaning",
     type: "website",

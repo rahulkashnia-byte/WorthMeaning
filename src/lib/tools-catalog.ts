@@ -26,10 +26,10 @@ export const TOOL_CATEGORIES: { id: ToolCategory; label: string }[] = [
 export const TOOLS: ToolMeta[] = [
   {
     slug: "rpm-revenue",
-    title: "RPM → revenue calculator",
+    title: "Website revenue calculator",
     short: "Visits + RPM → monthly & annual revenue",
     description:
-      "Estimate ad/affiliate revenue from monthly visits and RPM. Live math from your inputs.",
+      "Website earning check: estimate ad/affiliate revenue from monthly visits and RPM.",
     category: "valuation",
     liveData: false,
   },
@@ -53,19 +53,19 @@ export const TOOLS: ToolMeta[] = [
   },
   {
     slug: "adsense-earnings",
-    title: "AdSense earnings estimator",
-    short: "Pageviews + RPM → AdSense-style earnings",
+    title: "Website earning checker",
+    short: "Pageviews + RPM → site income estimate",
     description:
-      "Rough Google AdSense-style earnings from monthly pageviews and RPM.",
+      "Free website earning / revenue checker — AdSense-style income from pageviews and RPM.",
     category: "valuation",
     liveData: false,
   },
   {
     slug: "live-site-worth",
-    title: "Live site worth",
-    short: "Fresh Rank.to pull → worth estimate",
+    title: "Site worth checker",
+    short: "Fresh Rank.to pull → site worth estimate",
     description:
-      "Always fetches live Rank.to data (never cached reports) and estimates website worth.",
+      "Check site worth with live Rank.to data (never cached reports) — traffic value and midpoint.",
     category: "valuation",
     liveData: true,
   },
@@ -134,10 +134,10 @@ export const TOOLS: ToolMeta[] = [
   },
   {
     slug: "compare-sites",
-    title: "Compare two sites",
+    title: "Compare websites statistics",
     short: "Side-by-side live worth & traffic",
     description:
-      "Compare two domains with fresh Rank.to pulls — rank, visits, worth, trend.",
+      "Compare websites statistics live — rank, visits, worth, and trend for two domains.",
     category: "traffic",
     liveData: true,
   },
